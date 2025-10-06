@@ -32,7 +32,10 @@ run-checks = "scripts.run_checks:main"
 install-dev = "scripts.install_dev:main"
 
 [tool.poetry.dependencies]
-python = ">=3.8.1,<4.0"
+python = "^3.10"
+torch = { version = "^2.1.0", source = "pytorch-cu118" }
+numpy = "^1.26.0"
+chess = "^1.9.4"
 
 [tool.poetry.group.dev]
 optional = true
