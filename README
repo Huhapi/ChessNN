@@ -1,0 +1,15 @@
+First version of my chess intelligence program. 
+It uses pytorch neural networking to play predictive chess moves.
+To run this program:
+Poetry is required.
+this should all be done in a terminal in *\chessNeuralNetwork\ChessNN
+pip install poetry     #make sure to mark the path, as it will be needed to add to global or referenced to use poetry.
+poetry install --with dev,docs,test,build        
+*chessNeuralNetwork\ChessNN\.venv\Scripts\activate.ps1 # use total path in terminal to activate the pyproject.
+python src/play_chess.py  # This should launch the pygame chess to play against the neural network.
+
+The challenging part of this project is understanding how the neural network(nn) is working,
+connecting the pipeline, and assembling the data in such a way(tensor) that it is useful for the nn.
+The next step is to add in dual processing to increase the playing strength of the nn.
+
+Thanks for checking out the first version of my chess engine!
