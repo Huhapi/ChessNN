@@ -3,6 +3,7 @@
 # Board chess fen object to tensor object function.
 import numpy as np
 import chess
+import torch
 
 def fen_to_tensor(fen):
     """
@@ -12,7 +13,7 @@ def fen_to_tensor(fen):
     returns: Tensor board representation
     """
     board = chess.Board(fen)
-    tensor = np.zeros((19, 8, 8), dtype=np.float32)
+    tensor = np.zeros((18, 8, 8), dtype=np.float32)
 
     piece_map = {
         'P': 0, 'N': 1, 'B': 2, 'R': 3, 'Q': 4, 'K': 5,
@@ -46,10 +47,10 @@ def fen_to_tensor(fen):
         col = chess.square_file(board.ep_square)
         tensor[17][row][col] = 1
 
-    # Optional: repetition or move count
-    tensor[18] = np.full((8, 8), board.fullmove_number / 100.0)
 
-    return tensor
+    torch_tensor = torch.tensor(tensor).float()
+
+    return torch_tensor
 
 
 
